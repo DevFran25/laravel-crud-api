@@ -10,6 +10,17 @@ use Illuminate\Support\Facades\Validator;
 //Metodos de CRUD para el modelo Player se implementaran aqui
 class PlayerController extends Controller
 {
+
+public function index() { 
+    
+    $players = Player::all(); 
+    $data = [ 'players' => $players, 
+              'status' => 200 
+            ];
+    return response()->json($data, 200); 
+
+}
+
 public function store(Request $request)
 {
     // Validación correcta
