@@ -2,17 +2,17 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Http\Controllers\Api\playerController;
 
-Route::get('/players', [playerController::class, 'index']);
+use App\Http\Controllers\Api\PlayerController;
+
+Route::get('/players', [PlayerController::class, 'index']);
 
 Route::get('/players/{id}', function (){
     return 'Obteniendo jugador por ID';
 });
 
-Route::post('/players', function (){
-    return 'Creando un nuevo jugador';
-});
+Route::post('/players', [PlayerController::class, 'store']);
+
 
 Route::put('/players/{id}', function (){
     return 'Actualizando un jugador por ID';
