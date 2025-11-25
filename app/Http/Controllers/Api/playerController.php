@@ -37,5 +37,22 @@ public function store(Request $request)
         'status'  => 201
     ], 201);    
     }
+
+    public function show($id)
+    {
+        $player = Player::find($id);
+        if (!$player){
+            $data = [
+                'message' => 'Jugador no encontrado',
+                'status' => 404
+            ];
+            return response()->json($data, 404);
+        }
+        return response()->json([
+            'message' => 'Jugador encontrado',
+            'player' => $player,
+            'status' => 200
+        ], 200);
+    }
 }
 

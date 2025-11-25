@@ -7,9 +7,7 @@ use App\Http\Controllers\Api\PlayerController;
 
 Route::get('/players', [PlayerController::class, 'index']);
 
-Route::get('/players/{id}', function (){
-    return 'Obteniendo jugador por ID';
-});
+Route::get('/players/{id}', [PlayerController::class, 'show']);
 
 Route::post('/players', [PlayerController::class, 'store']);
 
